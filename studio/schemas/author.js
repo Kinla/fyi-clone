@@ -25,7 +25,6 @@ export default {
     select: {
       title: 'name',
       domain: 'domainName',
-      color: 'myColor',
     },
     prepare ({ title, domain }) {
       return {
