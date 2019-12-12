@@ -43,12 +43,17 @@ export default {
       fields: [
         {
           name: 'slug',
-          title: 'External URL or Slug',
+          title: 'Slug',
           type: 'slug',
           options: {
             source: 'title',
             maxLength: 96
           },
+        },
+        {
+          name: 'externalURL',
+          title: 'URL',
+          type: 'string'
         },
         {
           name: 'mainImage',

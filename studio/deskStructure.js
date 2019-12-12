@@ -47,16 +47,16 @@ export default () =>
                 // List out all categories
                 S.documentTypeList('author')
                     .title('Articles by Author')
-                    .child(catId =>
+                    .child(authId =>
                     // List out project documents where the _id for the selected
                     // category appear as a _ref in the project’s categories array
-                    S.documentList()
+                      S.documentList()
                         .schemaType('article')
                         .title('Articles')
                         .filter(
-                        '_type == "article" && $catId in author[]._ref'
+                          '_type == "article" && author._ref == $authId'
                         )
-                        .params({ catId })
+                        .params({ authId })
                 )
             )
             .icon(FiInbox),        

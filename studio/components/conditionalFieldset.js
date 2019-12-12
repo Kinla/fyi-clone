@@ -17,10 +17,6 @@ class CustomObjectInput extends React.PureComponent {
     value: PropTypes.shape({
       _type: PropTypes.string
     }),
-    focusPath: PropTypes.array.isRequired,
-    onFocus: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired
   }
 
   firstFieldInput = React.createRef()
@@ -40,7 +36,7 @@ class CustomObjectInput extends React.PureComponent {
 
   render() {
     console.log(this.props)
-    const {document, type, value, level, focusPath, onFocus, onBlur} = this.props
+    const {document, type, value, level} = this.props
     /**
      * condition comes from a field in the document schema
      * {
@@ -49,6 +45,7 @@ class CustomObjectInput extends React.PureComponent {
      * }
      */
     const {condition = false} = document
+
     return (
       <Fieldset level={level} legend={type.title} description={type.description}>
         <div>
@@ -74,16 +71,7 @@ class CustomObjectInput extends React.PureComponent {
              *   }
              *  Here the field 'b' will show only if the 'condition' boolean is set to true
              */
-            .filter(field => {
-                switch (condition) {
-                    case true :
-                        return field.name === 'mainImage' || 'body'
-                        break;
-                    case false :
-                        return field.name === 'slug'
-                        break;
-                }
-            })
+            .filter(field => condition ? ['mainImage', 'body', 'slug'].includes(field.name) : field.name === 'externalURL')
             .map((field, i) => (
               // Delegate to the generic FormBuilderInput. It will resolve and insert the actual input component
               // for the given field type
@@ -95,10 +83,6 @@ class CustomObjectInput extends React.PureComponent {
                     type={field.type}
                     value={value && value[field.name]}
                     onChange={patchEvent => this.handleFieldChange(field, patchEvent)}
-                    path={[field.name]}
-                    focusPath={focusPath}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
                 />
               </div>    
             ))}
