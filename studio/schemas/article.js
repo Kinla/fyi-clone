@@ -1,10 +1,12 @@
 import conditionalFieldsetInput from '../components/conditionalFieldset'
 import React from 'react'
+import { FiFileText } from 'react-icons/fi'
 
 export default {
   name: 'article',
   title: 'Article',
   type: 'document',
+  icon: FiFileText,
   fields: [
     {
       name: 'title',
@@ -70,7 +72,8 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'author.domainName'
+      media: 'author.domainName',
+      description: 'excerpt'
     },
     prepare(selection) {
       const {author, media, title} = selection

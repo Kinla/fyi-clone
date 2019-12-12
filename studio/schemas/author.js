@@ -1,9 +1,11 @@
 import React from 'react'
+import { MdPersonOutline } from 'react-icons/md'
 
 export default {
   name: 'author',
   title: 'Author',
   type: 'document',
+  icon: MdPersonOutline,
   fields: [
     {
       name: 'name',
@@ -20,6 +22,22 @@ export default {
       type: 'color',
       title: 'Choose color'
     },
+  ],
+  orderings: [
+    {
+      title: 'Name A-Z',
+      name: 'nameAsc',
+      by: [
+        {field: 'name', direction: 'asc'}
+      ]
+    },
+    {
+      title: 'Name Z-A',
+      name: 'nameDesc',
+      by: [
+        {field: 'name', direction: 'desc'}
+      ]
+    }
   ],
   preview: {
     select: {

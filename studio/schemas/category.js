@@ -17,5 +17,21 @@ export default {
         maxLength: 96
       }
     }
+  ],
+  orderings: [
+    {
+      title: 'Name A-Z',
+      name: 'titleAsc',
+      by: [
+        {field: 'title', direction: 'asc'}
+      ]
+    },
+    {
+      title: 'Name Z-A',
+      name: 'titleDesc',
+      by: [
+        {field: 'title', direction: 'desc'}
+      ]
+    }
   ]
 }
