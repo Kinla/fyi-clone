@@ -44,12 +44,9 @@ export default () =>
         S.listItem()
             .title('Articles by Author')
             .child(
-                // List out all categories
                 S.documentTypeList('author')
                     .title('Articles by Author')
                     .child(authId =>
-                    // List out project documents where the _id for the selected
-                    // category appear as a _ref in the project’s categories array
                       S.documentList()
                         .schemaType('article')
                         .title('Articles')

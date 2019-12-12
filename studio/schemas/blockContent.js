@@ -59,8 +59,11 @@ export default {
       type: 'image',
       options: {
         hotspot: true,
-        metadata: ["dimensions","palette"]
+        metadata: ["dimensions", "palette"]
       }
-    }
+    },
+    {
+      type: 'youtube'
+    },
   ]
 }
