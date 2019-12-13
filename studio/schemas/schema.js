@@ -13,6 +13,7 @@ import article from './article'
 import youtube from './youtube'
 import mainImage from './mainImage'
 import figure from './figure'
+import articleConditionSection from './articleConditionSection'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,6 +31,7 @@ export default createSchema({
     youtube,
     mainImage,
     figure,
+    articleConditionSection,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent
