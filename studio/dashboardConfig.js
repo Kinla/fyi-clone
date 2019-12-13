@@ -1,24 +1,12 @@
-// dashboardConfig.js
+// dashboardConfig.j
 export default {
     widgets: [
       {
         name: 'project-users',
         layout: {
           width: 'small',
-          height: 'auto'
+          height: 'small'
         }
-      },
-      {
-        name: 'document-list',
-        options: {
-          title: 'Newest Published Articles',
-          query: '*[_type == "article" && !(_id match "draft*")] | order(_updatedAt desc) [0...10]'
-        },
-        layout: {
-            width: 'medium',
-            height: 'auto'
-          }
-  
       },
       {
         name: 'document-list',
@@ -29,6 +17,30 @@ export default {
         layout: {
             width: 'medium',
             height: 'auto'
+          }
+  
+      },
+      {
+        name: 'document-list',
+        options: {
+          title: 'Published Articles',
+          query: '*[_type == "article" && !(_id match "draft*")] | order(_updatedAt desc) [0...10]',
+        },
+        layout: {
+            width: 'medium',
+            height: 'small'
+          }
+  
+      },
+      {
+        name: 'document-list',
+        options: {
+          title: 'Latest Live Articles',
+          query: '*[_type == "article" && !(_id match "draft*") && publishedAt < $now] | order(_updatedAt desc) [0...10]',
+        },
+        layout: {
+            width: 'medium',
+            height: 'small'
           }
   
       },

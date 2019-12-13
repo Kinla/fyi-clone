@@ -1,3 +1,6 @@
+import { MdFormatListNumbered, MdImage } from 'react-icons/md'
+import { FaTable, FaYoutube } from 'react-icons/fa'
+
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -29,7 +32,10 @@ export default {
         {title: 'Quote', value: 'blockquote'},
         {title: 'TBC Heading', value: 'h6'},
       ],
-      lists: [{title: 'Bullet', value: 'bullet'}],
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Numbered', value: 'number', icon: MdFormatListNumbered},
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -56,14 +62,19 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
-      type: 'image',
-      options: {
-        hotspot: true,
-        metadata: ["dimensions", "palette"]
-      }
+      title: 'Image',
+      type: 'figure',
     },
     {
-      type: 'youtube'
+      type: 'youtube',
+      icon: FaYoutube
+    },
+    {
+      type: 'table',
+      icon: FaTable
+    },
+    {
+      type: 'code',
     },
   ]
 }

@@ -20,6 +20,11 @@ export default {
       to: {type: 'author'}
     },
     {
+      name: 'publishedAt',
+      title: 'Live Date',
+      type: 'datetime'
+    },
+    {
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
@@ -61,7 +66,7 @@ export default {
           type: 'image',
           options: {
             hotspot: true,
-            metadata: ["dimensions", "palette"]
+            metadata: ['palette']
     
           },
         },

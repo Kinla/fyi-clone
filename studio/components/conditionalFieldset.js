@@ -17,6 +17,10 @@ class CustomObjectInput extends React.PureComponent {
     value: PropTypes.shape({
       _type: PropTypes.string
     }),
+    focusPath: PropTypes.array.isRequired,
+    onFocus: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onBlur: PropTypes.func.isRequired
   }
 
   firstFieldInput = React.createRef()
@@ -36,7 +40,7 @@ class CustomObjectInput extends React.PureComponent {
 
   render() {
     console.log(this.props)
-    const {document, type, value, level} = this.props
+    const {document, type, value, level, focusPath, onFocus, onBlur} = this.props
     /**
      * condition comes from a field in the document schema
      * {
@@ -83,6 +87,10 @@ class CustomObjectInput extends React.PureComponent {
                     type={field.type}
                     value={value && value[field.name]}
                     onChange={patchEvent => this.handleFieldChange(field, patchEvent)}
+                    path={[field.name]}
+                    focusPath={focusPath}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
                 />
               </div>    
             ))}
